@@ -1,0 +1,15 @@
+{
+    "name": "package-for-laravel/testing-framework",
+    "description": "Useful library functionality for testing Laravel Apps",
+    "license": "MIT",
+    "require": {
+        "php": "^7.3",
+        "phpunit/phpunit": "^8",
+        "laravel/framework": "^5.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "PackageForLaravel\\TestingFramework\\": "src/"
+        }
+    }
+}
