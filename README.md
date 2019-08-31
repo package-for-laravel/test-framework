@@ -41,6 +41,19 @@ class UserTests extends UnitTestCase
 
 These test cases expect you still have the default Laravel Framework testing setup.  Specifically, they will extend `Tests\TestCase` from your own application. (This most likely creates the application anyway so you probably have it.)
 
+*Features for all Tests*
+
+The `todo()` method will mark the test as incomplete.  So, if you want to come back to it later, you can do so.  This is nice because sometimes you know what you want to test at the time, but you might not be able to do so.  For example:
+
+```php
+public function testGetsFullName(): void
+{
+  $this->todo();
+}
+```
+
+This way, you won't forget to test the full name later.  But, your tests will still execute properly.
+
 *Features of Unit Test Case*
 
 With Unit Test Case, an exception is thrown if a test accessed the database during execution.
@@ -49,8 +62,21 @@ With Unit Test Case, an exception is thrown if a test accessed the database duri
 
 Integration test case will run the database migrations from RefreshDatabase, which sets up the transactions. It will also call all your seeders.
 
-Feature test case just extends the integration test case at this time.
+*Features of Feature Test Case*
 
+The features test case includes a `createActingAs()` method.  This allows you to pass in properties that will be passed over to your `User` model factory.  When the user is created,
+it will be saved to the database, then also added to a protected property `$this->actingAs` and returned as well.  By default, it will create the user model you have set in your config. You can override this with the second parameter, though.
+
+```php
+public function testUserInfoShown(): void
+{
+  $user = $this->createActingAs([
+    'name' => 'Guy Smiley'
+  ]);
+  $this->get('/me')
+    ->assertSee('Guy Smiley');
+}
+```
 
 ## Testing
 

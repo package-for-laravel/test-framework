@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace PackageForLaravel\TestingFramework\TestCases;
 
 use PackageForLaravel\TestingFramework\Concerns\AlertsUnwantedDBAccess;
+use PackageForLaravel\TestingFramework\Concerns\HasTodo;
 use Tests\TestCase;
 
 /**
@@ -12,7 +13,7 @@ use Tests\TestCase;
  */
 abstract class UnitTestCase extends TestCase
 {
-    use AlertsUnwantedDBAccess;
+    use AlertsUnwantedDBAccess, HasTodo;
 
     /**
      * Set up the unwanted db access exception
