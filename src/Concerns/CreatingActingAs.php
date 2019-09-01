@@ -6,7 +6,7 @@ declare(strict_types=1);
 
 namespace PackageForLaravel\TestingFramework\Concerns;
 
-use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 /**
  * Trait CreatingActingAs
