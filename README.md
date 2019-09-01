@@ -152,3 +152,7 @@ public function testItsAllAboutMe(): void
 ## Testing
 
 Where are your tests?  That's kind of a circular reference - testing a testing framework right? But alas, there are none right now.
+
+## Credits
+
+This package is created and maintained by [Aaron Saray](https://github.com/aaronsaray) 
