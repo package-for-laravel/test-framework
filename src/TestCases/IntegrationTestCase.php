@@ -18,7 +18,7 @@ abstract class IntegrationTestCase extends TestCase
     /**
      * Runs seeders
      */
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->seed();
